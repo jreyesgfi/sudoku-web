@@ -11,12 +11,12 @@
 
   display: inline-block;
   position:absolute;
-  left:calc(180px + 10vw);
+  left:calc(26vh + 7vw);
   top:0px;
   bottom: 0px;
   margin-bottom:auto;
   margin-top:auto;
-  margin-left:2vh;
+  margin-left:0vh;
 }
 
 h1 {
@@ -34,6 +34,17 @@ h1 {
 .tablero {
   position: absolute;
   top:20vh;
+  height: min(60vh, 70vw);
+  width: min(60vh, 70vw);
+  background-color: darkgray;
+  left: 0px;
+  right: 0px;
+  margin-right:auto;
+  margin-left:auto;
+}
+
+.cuadrado {
+  background-color: darkcyan;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -71,7 +82,7 @@ h1 {
   }
 
   .App-logo {
-    margin-left: -2vh;
+    margin-left: min(7vh, 5vw + 2vh);
     height: min(12vh, calc(15vw ));
   }
 

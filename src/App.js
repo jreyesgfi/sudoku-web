@@ -15,17 +15,14 @@ function App() {
       </header>
       <div className="tablero">
         <Grid container spacing={2}>
-          <Grid item xs={6} md={8}>
+          <Grid className="cuadrado" item xs={4}>
             <p>1</p>
           </Grid>
-          <Grid item xs={6} md={4}>
+          <Grid className="cuadrado" item xs={4}>
             <p>2</p>
           </Grid>
-          <Grid item xs={6} md={4}>
+          <Grid className="cuadrado" item xs={4}>
             <p>3</p>
-          </Grid>
-          <Grid item xs={6} md={8}>
-            <p>4</p>
           </Grid>
         </Grid>
       </div>
