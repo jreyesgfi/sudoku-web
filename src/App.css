@@ -62,13 +62,23 @@ h1 {
 }
 
 .celda {
-  flex: 1 0 27%;
+  flex: 1 1 27%;
   margin: 2px;
-  height: auto;
+  height: 27%;
+  overflow: hidden;
+  margin: 0 auto;
+
+  padding-top: min(3vw,4px);
+  padding-left:2px;
+  padding-right:2px;
 
   background: white;
   border: solid 1px grey;
 }
+/* .ejemplo {
+  border: solid 4px red;
+} */
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 10s linear;
@@ -128,6 +138,9 @@ h1 {
   
   .celda {
     margin: 0px;
+    padding-top: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
     border: dotted 1px gray;
   }
 }

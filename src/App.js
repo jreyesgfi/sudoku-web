@@ -1,9 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import {
-  Grid
-} from '@mui/material';
-import { Box } from '@mui/system';
+import Tablero from './Views/Tablero';
 
 function App() {
   return (
@@ -14,107 +11,7 @@ function App() {
           Sudokus
         </h1>
       </header>
-      <Box className="tablero flex-grid">
-      <Box className="cuadrado flex-grid">
-          <Box className="celda"></Box>
-          <Box className="celda"></Box>
-          <Box className="celda"></Box>
-          <Box className="celda"></Box>
-          <Box className="celda"></Box>
-          <Box className="celda"></Box>
-          <Box className="celda"></Box>
-          <Box className="celda"></Box>
-          <Box className="celda"></Box>
-        </Box>
-        <Box className="cuadrado flex-grid">
-          <Box className="celda"></Box>
-          <Box className="celda"></Box>
-          <Box className="celda"></Box>
-          <Box className="celda"></Box>
-          <Box className="celda"></Box>
-          <Box className="celda"></Box>
-          <Box className="celda"></Box>
-          <Box className="celda"></Box>
-          <Box className="celda"></Box>
-        </Box>
-        <Box className="cuadrado flex-grid">
-          <Box className="celda"></Box>
-          <Box className="celda"></Box>
-          <Box className="celda"></Box>
-          <Box className="celda"></Box>
-          <Box className="celda"></Box>
-          <Box className="celda"></Box>
-          <Box className="celda"></Box>
-          <Box className="celda"></Box>
-          <Box className="celda"></Box>
-        </Box>
-        <Box className="cuadrado flex-grid">
-          <Box className="celda"></Box>
-          <Box className="celda"></Box>
-          <Box className="celda"></Box>
-          <Box className="celda"></Box>
-          <Box className="celda"></Box>
-          <Box className="celda"></Box>
-          <Box className="celda"></Box>
-          <Box className="celda"></Box>
-          <Box className="celda"></Box>
-        </Box>
-        <Box className="cuadrado flex-grid">
-          <Box className="celda"></Box>
-          <Box className="celda"></Box>
-          <Box className="celda"></Box>
-          <Box className="celda"></Box>
-          <Box className="celda"></Box>
-          <Box className="celda"></Box>
-          <Box className="celda"></Box>
-          <Box className="celda"></Box>
-          <Box className="celda"></Box>
-        </Box>
-        <Box className="cuadrado flex-grid">
-          <Box className="celda"></Box>
-          <Box className="celda"></Box>
-          <Box className="celda"></Box>
-          <Box className="celda"></Box>
-          <Box className="celda"></Box>
-          <Box className="celda"></Box>
-          <Box className="celda"></Box>
-          <Box className="celda"></Box>
-          <Box className="celda"></Box>
-        </Box>
-        <Box className="cuadrado flex-grid">
-          <Box className="celda"></Box>
-          <Box className="celda"></Box>
-          <Box className="celda"></Box>
-          <Box className="celda"></Box>
-          <Box className="celda"></Box>
-          <Box className="celda"></Box>
-          <Box className="celda"></Box>
-          <Box className="celda"></Box>
-          <Box className="celda"></Box>
-        </Box>
-        <Box className="cuadrado flex-grid">
-          <Box className="celda"></Box>
-          <Box className="celda"></Box>
-          <Box className="celda"></Box>
-          <Box className="celda"></Box>
-          <Box className="celda"></Box>
-          <Box className="celda"></Box>
-          <Box className="celda"></Box>
-          <Box className="celda"></Box>
-          <Box className="celda"></Box>
-        </Box>
-        <Box className="cuadrado flex-grid">
-          <Box className="celda"></Box>
-          <Box className="celda"></Box>
-          <Box className="celda"></Box>
-          <Box className="celda"></Box>
-          <Box className="celda"></Box>
-          <Box className="celda"></Box>
-          <Box className="celda"></Box>
-          <Box className="celda"></Box>
-          <Box className="celda"></Box>
-        </Box>
-      </Box>
+      {Tablero.construirTablero()}
     </div>
   );
 }
