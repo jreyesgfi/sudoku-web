@@ -31,16 +31,18 @@ h1 {
   margin-bottom: 0px;
 }
 
-.tablero {
-  position: absolute;
-  top:30vh;
 
+.flex-grid{
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+}
+.tablero {
+  position: absolute;
+  top:24vh;
 
-  height: min(60vh, 70vw);
-  width: min(60vh, 70vw);
+  height: min(60vh, 72vw);
+  width: min(60vh, 72vw);
   min-width: 35vh;
   min-height: 35vh;
 
@@ -50,11 +52,20 @@ h1 {
   margin-right:auto;
   margin-left:auto;
 }
-.col {
-  flex: 1 0 29%;
-  margin: 5px;
-  height: min(17vh, 21vw);
+.cuadrado {
+  flex: 1 0 28%;
+  margin: 1vh;
+  height: auto;
+
   background: darkorange;
+}
+
+.celda {
+  flex: 1 0 27%;
+  margin: 3px;
+  height: auto;
+
+  background: white;
 }
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {

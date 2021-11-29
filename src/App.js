@@ -14,17 +14,107 @@ function App() {
           Sudokus
         </h1>
       </header>
-      <div className="flex-grid" className="tablero">
-        <div className="col">1</div>
-        <div className="col">2</div>
-        <div className="col">3</div>
-        <div className="col">4</div>
-        <div className="col">5</div>
-        <div className="col">6</div>
-        <div className="col">7</div>
-        <div className="col">8</div>
-        <div className="col">9</div>
-      </div>
+      <Box className="tablero flex-grid">
+        <Box className="cuadrado flex-grid">
+          <Box className="celda">1</Box>
+          <Box className="celda">2</Box>
+          <Box className="celda">3</Box>
+          <Box className="celda">4</Box>
+          <Box className="celda">5</Box>
+          <Box className="celda">6</Box>
+          <Box className="celda">7</Box>
+          <Box className="celda">8</Box>
+          <Box className="celda">9</Box>
+        </Box>
+        <Box className="cuadrado flex-grid">
+          <Box className="celda">1</Box>
+          <Box className="celda">2</Box>
+          <Box className="celda">3</Box>
+          <Box className="celda">4</Box>
+          <Box className="celda">5</Box>
+          <Box className="celda">6</Box>
+          <Box className="celda">7</Box>
+          <Box className="celda">8</Box>
+          <Box className="celda">9</Box>
+        </Box>
+        <Box className="cuadrado flex-grid">
+          <Box className="celda">1</Box>
+          <Box className="celda">2</Box>
+          <Box className="celda">3</Box>
+          <Box className="celda">4</Box>
+          <Box className="celda">5</Box>
+          <Box className="celda">6</Box>
+          <Box className="celda">7</Box>
+          <Box className="celda">8</Box>
+          <Box className="celda">9</Box>
+        </Box>
+        <Box className="cuadrado flex-grid">
+          <Box className="celda">1</Box>
+          <Box className="celda">2</Box>
+          <Box className="celda">3</Box>
+          <Box className="celda">4</Box>
+          <Box className="celda">5</Box>
+          <Box className="celda">6</Box>
+          <Box className="celda">7</Box>
+          <Box className="celda">8</Box>
+          <Box className="celda">9</Box>
+        </Box>
+        <Box className="cuadrado flex-grid">
+          <Box className="celda">1</Box>
+          <Box className="celda">2</Box>
+          <Box className="celda">3</Box>
+          <Box className="celda">4</Box>
+          <Box className="celda">5</Box>
+          <Box className="celda">6</Box>
+          <Box className="celda">7</Box>
+          <Box className="celda">8</Box>
+          <Box className="celda">9</Box>
+        </Box>
+        <Box className="cuadrado flex-grid">
+          <Box className="celda">1</Box>
+          <Box className="celda">2</Box>
+          <Box className="celda">3</Box>
+          <Box className="celda">4</Box>
+          <Box className="celda">5</Box>
+          <Box className="celda">6</Box>
+          <Box className="celda">7</Box>
+          <Box className="celda">8</Box>
+          <Box className="celda">9</Box>
+        </Box>
+        <Box className="cuadrado flex-grid">
+          <Box className="celda">1</Box>
+          <Box className="celda">2</Box>
+          <Box className="celda">3</Box>
+          <Box className="celda">4</Box>
+          <Box className="celda">5</Box>
+          <Box className="celda">6</Box>
+          <Box className="celda">7</Box>
+          <Box className="celda">8</Box>
+          <Box className="celda">9</Box>
+        </Box>
+        <Box className="cuadrado flex-grid">
+          <Box className="celda">1</Box>
+          <Box className="celda">2</Box>
+          <Box className="celda">3</Box>
+          <Box className="celda">4</Box>
+          <Box className="celda">5</Box>
+          <Box className="celda">6</Box>
+          <Box className="celda">7</Box>
+          <Box className="celda">8</Box>
+          <Box className="celda">9</Box>
+        </Box>
+        <Box className="cuadrado flex-grid">
+          <Box className="celda">1</Box>
+          <Box className="celda">2</Box>
+          <Box className="celda">3</Box>
+          <Box className="celda">4</Box>
+          <Box className="celda">5</Box>
+          <Box className="celda">6</Box>
+          <Box className="celda">7</Box>
+          <Box className="celda">8</Box>
+          <Box className="celda">9</Box>
+        </Box>
+      </Box>
     </div>
   );
 }
