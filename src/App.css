@@ -46,26 +46,28 @@ h1 {
   min-width: 35vh;
   min-height: 35vh;
 
-  background: darkgray;
+  border:solid 3px black;
+
   left: 0px;
   right: 0px;
   margin-right:auto;
   margin-left:auto;
 }
 .cuadrado {
-  flex: 1 0 28%;
-  margin: 1vh;
+  flex: 1 0 27%;
+  margin: 2px;
   height: auto;
 
-  background: darkorange;
+  border: solid 1px grey;
 }
 
 .celda {
   flex: 1 0 27%;
-  margin: 3px;
+  margin: 2px;
   height: auto;
 
   background: white;
+  border: solid 1px grey;
 }
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
@@ -111,4 +113,21 @@ h1 {
     margin-left:8vh;
   }
   
+}
+
+
+@media screen and (max-width: 450px) {
+  .tablero{
+    border: solid 3px black;
+  }
+
+  .cuadrado {
+    margin: 0px;
+    border: solid 1px gray;
+  }
+  
+  .celda {
+    margin: 0px;
+    border: dotted 1px gray;
+  }
 }
