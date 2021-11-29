@@ -33,20 +33,29 @@ h1 {
 
 .tablero {
   position: absolute;
-  top:20vh;
+  top:30vh;
+
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
   height: min(60vh, 70vw);
   width: min(60vh, 70vw);
-  background-color: darkgray;
+  min-width: 35vh;
+  min-height: 35vh;
+
+  background: darkgray;
   left: 0px;
   right: 0px;
   margin-right:auto;
   margin-left:auto;
 }
-
-.cuadrado {
-  background-color: darkcyan;
+.col {
+  flex: 1 0 29%;
+  margin: 5px;
+  height: min(17vh, 21vw);
+  background: darkorange;
 }
-
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 10s linear;
@@ -90,6 +99,5 @@ h1 {
     margin-top: min(calc(3.2vh + 4vw), 3.5vh);
     margin-left:8vh;
   }
-  
   
 }

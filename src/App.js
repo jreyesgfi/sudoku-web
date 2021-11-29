@@ -3,6 +3,7 @@ import './App.css';
 import {
   Grid
 } from '@mui/material';
+import { Box } from '@mui/system';
 
 function App() {
   return (
@@ -13,18 +14,16 @@ function App() {
           Sudokus
         </h1>
       </header>
-      <div className="tablero">
-        <Grid container spacing={2}>
-          <Grid className="cuadrado" item xs={4}>
-            <p>1</p>
-          </Grid>
-          <Grid className="cuadrado" item xs={4}>
-            <p>2</p>
-          </Grid>
-          <Grid className="cuadrado" item xs={4}>
-            <p>3</p>
-          </Grid>
-        </Grid>
+      <div className="flex-grid" className="tablero">
+        <div className="col">1</div>
+        <div className="col">2</div>
+        <div className="col">3</div>
+        <div className="col">4</div>
+        <div className="col">5</div>
+        <div className="col">6</div>
+        <div className="col">7</div>
+        <div className="col">8</div>
+        <div className="col">9</div>
       </div>
     </div>
   );
