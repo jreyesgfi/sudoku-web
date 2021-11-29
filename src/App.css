@@ -79,6 +79,9 @@ h1 {
   border: solid 4px red;
 } */
 
+.resaltada {
+  background: pink;
+}
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 10s linear;
