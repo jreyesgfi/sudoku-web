@@ -1,10 +1,11 @@
 import { Box } from "@mui/system";
 import React from "react";
+import Celda from "./Celda";
 export default class Cuadrado extends React.Component{
-    constructor(id, hijos){
-        super();
-        this.id = id;
-        this.hijos = hijos;
+    constructor(props){
+        super(props);
+        this.key = props.key;
+        this.hijos = props.hijos;
         }
 
 
@@ -15,8 +16,12 @@ export default class Cuadrado extends React.Component{
 
     render(){
         return(
-            <Box className= "cuadrado flex-grid ejemplo" key={this.id}>
-                {this.hijos[0]}
+            <Box className= "cuadrado flex-grid ejemplo" key={this.key}>
+
+                {this.hijos.map(celda=>
+                    <Celda x={celda.x} y={celda.y} key={celda.key}>
+                    </Celda>
+                )}
             </Box>
         )
     }

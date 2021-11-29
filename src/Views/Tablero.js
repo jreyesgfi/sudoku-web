@@ -1,6 +1,5 @@
 import { Box } from '@mui/system';
 import React from 'react';
-import Celda from '../Elementos/Celda';
 import Cuadrado from '../Elementos/Cuadrado';
 export default class Tablero extends React.Component {
 
@@ -31,13 +30,13 @@ export default class Tablero extends React.Component {
                 // Creamos la celda como información
                 let x = Math.floor(i / 3) * 3 + Math.floor(j / 3);
                 let y = i % 3 * 3 + j % 3;
-                let dataCelda = new Celda(x, y, key)
+                let celda = {x:x,y:y,key:key};
 
                 // Creamos las celdas gráficas
                 //let celda = dataCelda.ui;
-                celdas.push(dataCelda);
+                celdas.push(celda);
 
-                this.tableroEnLista[x][y] = dataCelda;
+                //this.tableroEnLista[x][y] = dataCelda;
                 // tambíen podríamos indicar que dicha celda posee un elemento cuadrado asociado
                 // console.log(x, y);
                 key++;
@@ -48,7 +47,7 @@ export default class Tablero extends React.Component {
             // let cuadrado = React.createElement('Box',
             //     { className: "cuadrado flex-grid ejemplo", key: i },
             //     celdas);
-            let cuadrado = new Cuadrado(i, celdas)
+            let cuadrado = {key:i,hijos:celdas.slice()}; // Creamos una copia con slice()
             celdas = [];
             cuadrados.push(cuadrado)
         }
@@ -59,7 +58,10 @@ export default class Tablero extends React.Component {
 
         return (
             <Box className= "tablero flex-grid">
-                {cuadrados[0]}
+                {cuadrados.map(cuadrado=>
+                <Cuadrado key={cuadrado.key} hijos={cuadrado.hijos}>
+                </Cuadrado>
+            )}
             </Box>
             // React.createElement('Box',
             //     { className: "tablero flex-grid" },

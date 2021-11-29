@@ -13,7 +13,8 @@ function App() {
           Sudokus
         </h1>
       </header>
-      {new Tablero()}
+      <Tablero>
+      </Tablero>
     </div>
   );
 }
