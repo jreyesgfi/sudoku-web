@@ -1,26 +1,33 @@
+import reactDom from "react-dom";
+import { ClassNames } from "@emotion/react";
 import { Box } from "@mui/system";
 import React from "react";
-export default class Celda extends React.Component{
-    constructor(props){
+export default class Celda extends React.Component {
+    constructor(props) {
         super(props);
         this.x = props.x;
         this.y = props.y;
         // No podemos crear un hook en una clase
-        this.resaltada = false;
         this.key = props.key;
+
+
+        this.resaltar = this.resaltar.bind(this);
+        this.state = { resaltada: 0};
         //this.ui = React.createElement('Box', { className: `celda ${this.resaltada && 'resaltada'}`, key:key});
     }
 
-
-    setResaltada(resaltada){
-        this.resaltada = resaltada;
-        this.render();
+    resaltar(event) {
+        console.log(this.state.resaltada)
+        let valor = this.state.resaltada? null:0;
+        this.setState({
+          resaltada: valor
+        });
     }
-
-    render(){
+    render() {
         return(
-            <Box className= {`celda ${this.resaltada && 'resaltada'}`} key={this.key}>
-            </Box>
+        <Box className="celda" onClick={this.resaltar}>
+            <p>{this.state.resaltada}</p>
+        </Box>
         )
     }
 }
