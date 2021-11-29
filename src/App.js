@@ -1,6 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
 import Tablero from './Views/Tablero';
+import React from 'react';
+
 
 function App() {
   return (
@@ -11,7 +13,7 @@ function App() {
           Sudokus
         </h1>
       </header>
-      {Tablero.construirTablero()}
+      {new Tablero()}
     </div>
   );
 }

@@ -1,11 +1,13 @@
 import { Box } from '@mui/system';
 import React from 'react';
 import Celda from '../Elementos/Celda';
-export default class Tablero {
+import Cuadrado from '../Elementos/Cuadrado';
+export default class Tablero extends React.Component {
+
+
     static tableroEnLista = [];
 
-    static construirTablero() {
-        let tablero = null;
+    render() {
         let cuadrados = [];
         let celdas = [];
         let key = 0;
@@ -32,8 +34,8 @@ export default class Tablero {
                 let dataCelda = new Celda(x, y, key)
 
                 // Creamos las celdas gráficas
-                let celda = dataCelda.ui;
-                celdas.push(celda);
+                //let celda = dataCelda.ui;
+                celdas.push(dataCelda);
 
                 this.tableroEnLista[x][y] = dataCelda;
                 // tambíen podríamos indicar que dicha celda posee un elemento cuadrado asociado
@@ -43,21 +45,25 @@ export default class Tablero {
 
             // Si estamos en el último hijo creamos el cuadrado
             // Creamos los cuadrados
-            let cuadrado = React.createElement('Box',
-                { className: "cuadrado flex-grid ejemplo", key: i },
-                celdas);
+            // let cuadrado = React.createElement('Box',
+            //     { className: "cuadrado flex-grid ejemplo", key: i },
+            //     celdas);
+            let cuadrado = new Cuadrado(i, celdas)
             celdas = [];
             cuadrados.push(cuadrado)
         }
 
         // Prueba de colorear
-        this.colorearCeldas([[0, 3],[1,2]]);
+        //this.colorearCeldas([[0, 3],[1,2]]);
 
 
         return (
-            tablero = React.createElement('Box',
-                { className: "tablero flex-grid" },
-                cuadrados)
+            <Box className= "tablero flex-grid">
+                {cuadrados[0]}
+            </Box>
+            // React.createElement('Box',
+            //     { className: "tablero flex-grid" },
+            //     cuadrados)
         );
     }
 
