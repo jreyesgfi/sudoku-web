@@ -4,6 +4,21 @@ import Cuadrado from '../Elementos/Cuadrado';
 export default class Tablero extends React.Component {
 
     static tableroEnLista = [];
+    static celdaClickada = null;
+    static celdasResaltadas = [];
+
+    // Métodos para cambiar las celdas marcadas
+    static clickar(celda) {
+        if (Tablero.celdaClickada) {
+            try {Tablero.celdaClickada.desclickar() }
+            catch {
+                console.log('celda errónea, tablero');
+            }
+        }
+        Tablero.celdaClickada = celda;
+    }
+
+
 
     render() {
         let cuadrados = [];
@@ -29,7 +44,7 @@ export default class Tablero extends React.Component {
                 // Creamos la celda como información
                 let x = Math.floor(i / 3) * 3 + Math.floor(j / 3);
                 let y = i % 3 * 3 + j % 3;
-                let celda = {x:x,y:y,key:key};
+                let celda = { x: x, y: y, key: key };
 
                 // Creamos las celdas gráficas
                 //let celda = dataCelda.ui;
@@ -46,7 +61,7 @@ export default class Tablero extends React.Component {
             // let cuadrado = React.createElement('Box',
             //     { className: "cuadrado flex-grid ejemplo", key: i },
             //     celdas);
-            let cuadrado = {key:i,hijos:celdas.slice()}; // Creamos una copia con slice()
+            let cuadrado = { key: i, hijos: celdas.slice() }; // Creamos una copia con slice()
             celdas = [];
             cuadrados.push(cuadrado)
         }
@@ -56,11 +71,11 @@ export default class Tablero extends React.Component {
 
 
         return (
-            <Box className= "tablero flex-grid">
-                {cuadrados.map(cuadrado=>
-                <Cuadrado key={cuadrado.key} hijos={cuadrado.hijos}>
-                </Cuadrado>
-            )}
+            <Box className="tablero flex-grid">
+                {cuadrados.map(cuadrado =>
+                    <Cuadrado key={cuadrado.key} hijos={cuadrado.hijos}>
+                    </Cuadrado>
+                )}
             </Box>
             // React.createElement('Box',
             //     { className: "tablero flex-grid" },
@@ -86,12 +101,8 @@ export default class Tablero extends React.Component {
     }
 }
 
-export function CeldasMarcadas(){
+// export function CeldasMarcadas(){
 
-    const [celdaClickada,setCeldaClickada] = useState(0);
-    const [celdasResaltadas,setCeldasResaltadas] = useState([]);
-
-
-    
-    
-}
+//     const [celdaClickada,setCeldaClickada] = useState(0);
+//     const [celdasResaltadas,setCeldasResaltadas] = useState([]);  
+// }
