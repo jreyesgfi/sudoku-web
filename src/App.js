@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import Tablero from './Views/Tablero';
 import React from 'react';
+import PanelNumerico from './Views/PanelNumerico';
 
 
 function App() {
@@ -15,6 +16,8 @@ function App() {
       </header>
       <Tablero>
       </Tablero>
+      <PanelNumerico>
+      </PanelNumerico>
     </div>
   );
 }

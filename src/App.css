@@ -53,6 +53,22 @@ h1 {
   margin-right:auto;
   margin-left:auto;
 }
+.panel-numerico {
+  position: absolute;
+  top:24vh;
+
+  height: min(60vh, 72vw);
+  width: min(60vh, 72vw);
+  min-width: 35vh;
+  min-height: 35vh;
+
+  left: 0px;
+  right: 0px;
+  margin-right:auto;
+  margin-left:auto;
+
+}
+
 .cuadrado {
   flex: 1 0 27%;
   margin: 2px;
@@ -78,7 +94,15 @@ h1 {
 /* .ejemplo {
   border: solid 4px red;
 } */
+.numero-boton {
+  flex: 1 1 15%;
+  height: auto;
 
+  background: white;
+  border: solid 1px grey;
+  border-radius:30%;
+
+}
 .resaltada {
   background: pink;
 }
