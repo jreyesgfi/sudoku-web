@@ -9,8 +9,8 @@ export default class NumerosBotones extends React.Component{
     }
     render(){
         return(
-            <Box className="numero-boton flex-item">
-                {`${this.numero}`}
+            <Box className="numero-boton">
+                {`${this.numero + 1}`}
             </Box>
         )
     }
