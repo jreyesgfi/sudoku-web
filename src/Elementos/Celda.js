@@ -2,6 +2,7 @@ import reactDom from "react-dom";
 import { ClassNames } from "@emotion/react";
 import { Box } from "@mui/system";
 import React from "react";
+import Tablero, { CeldasMarcadas } from "../Views/Tablero";
 export default class Celda extends React.Component {
     constructor(props) {
         super(props);
@@ -12,7 +13,8 @@ export default class Celda extends React.Component {
 
 
         this.resaltar = this.resaltar.bind(this);
-        this.state = { resaltada: false};
+        this.click = this.click.bind(this);
+        this.state = { clickada:false, resaltada: false};
         //this.ui = React.createElement('Box', { className: `celda ${this.resaltada && 'resaltada'}`, key:key});
     }
 
@@ -24,6 +26,14 @@ export default class Celda extends React.Component {
         });
     }
 
+    click() {
+        Tablero.clickar(this);
+        this.setState({clickada: true});
+    }
+
+    desclickar(){
+        this.setState({clickada: false});
+    }
     // click() {
     //     function setCeldaClickada(celda){
     //         if (celdaClickada){
@@ -54,8 +64,9 @@ export default class Celda extends React.Component {
 
     render() {
         return(
-        <Box className={`celda ${this.state.resaltada && 'resaltada'}`} onClick={this.resaltar} >
+        <Box className={`celda  ${this.state.clickada && 'clickada'}`} onClick={this.click} >
         </Box>
         )
     }
 }
+//${this.state.resaltada && 'resaltada'}

@@ -82,6 +82,10 @@ h1 {
 .resaltada {
   background: pink;
 }
+
+.clickada {
+  background: red;
+}
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 10s linear;

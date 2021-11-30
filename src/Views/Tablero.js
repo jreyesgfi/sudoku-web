@@ -9,6 +9,7 @@ export default class Tablero extends React.Component {
 
     // Métodos para cambiar las celdas marcadas
     static clickar(celda) {
+        console.log(Tablero.celdaClickada);
         if (Tablero.celdaClickada) {
             try {Tablero.celdaClickada.desclickar() }
             catch {
@@ -16,6 +17,20 @@ export default class Tablero extends React.Component {
             }
         }
         Tablero.celdaClickada = celda;
+    }
+
+    static resaltar(celda){
+        if (Tablero.celdaClickada == celda){
+            Tablero.celdasResaltadas.map((celdaPrevia) => {
+                try { celdaPrevia.desclickar() }
+                catch {
+                    console.log('celda errónea, tablero');
+                }
+            });
+            Tablero.celdasResaltadas = [];
+        } else {
+            Tablero.celdasResaltadas.push(celda);
+        }
     }
 
 
