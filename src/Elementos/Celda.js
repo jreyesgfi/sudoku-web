@@ -10,6 +10,10 @@ export default class Celda extends React.Component {
         this.y = props.y;
         // No podemos crear un hook en una clase
         this.key = props.key;
+        
+        // Lo relacionamos con el cuadrado
+        this.cuadrado = props.cuadrado
+        this.cuadrado.hijosUI.push(this);
 
 
         this.resaltar = this.resaltar.bind(this);
@@ -19,11 +23,7 @@ export default class Celda extends React.Component {
     }
 
     resaltar() {
-        console.log(this.state.resaltada)
-        let valor = this.state.resaltada? null:true;
-        this.setState({
-          resaltada: valor
-        });
+        this.setState({resaltada:true});
     }
 
     click() {
@@ -32,7 +32,7 @@ export default class Celda extends React.Component {
     }
 
     desclickar(){
-        this.setState({clickada: false});
+        this.setState({clickada: false, resaltada:false});
     }
     // click() {
     //     function setCeldaClickada(celda){
@@ -64,9 +64,8 @@ export default class Celda extends React.Component {
 
     render() {
         return(
-        <Box className={`celda  ${this.state.clickada && 'clickada'}`} onClick={this.click} >
+        <Box className={`celda ${this.state.resaltada && 'resaltada'} ${this.state.clickada && 'clickada'}`} onClick={this.click} >
         </Box>
         )
     }
 }
-//${this.state.resaltada && 'resaltada'}

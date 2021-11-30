@@ -6,6 +6,7 @@ export default class Cuadrado extends React.Component{
         super(props);
         this.key = props.key;
         this.hijos = props.hijos;
+        this.hijosUI = [];
         }
 
 
@@ -19,7 +20,7 @@ export default class Cuadrado extends React.Component{
             <Box className= "cuadrado flex-grid ejemplo" key={this.key}>
 
                 {this.hijos.map(celda=>
-                    <Celda x={celda.x} y={celda.y} key={celda.key}>
+                    <Celda x={celda.x} y={celda.y} key={celda.key} cuadrado={this}>
                     </Celda>
                 )}
             </Box>

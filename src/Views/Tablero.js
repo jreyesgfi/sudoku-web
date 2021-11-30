@@ -16,21 +16,30 @@ export default class Tablero extends React.Component {
                 console.log('celda errónea, tablero');
             }
         }
+
+        // Coloreamos de nuevo
         Tablero.celdaClickada = celda;
+        Tablero.resaltarCeldas();
     }
 
-    static resaltar(celda){
-        if (Tablero.celdaClickada == celda){
-            Tablero.celdasResaltadas.map((celdaPrevia) => {
-                try { celdaPrevia.desclickar() }
-                catch {
-                    console.log('celda errónea, tablero');
-                }
-            });
-            Tablero.celdasResaltadas = [];
-        } else {
-            Tablero.celdasResaltadas.push(celda);
-        }
+    static resaltarCeldas(){
+
+        // Dejamos de resaltar las previas
+        Tablero.celdasResaltadas.map((celdaPrevia) => {
+            try { celdaPrevia.desclickar() }
+            catch {
+                console.log('celda errónea, tablero');
+            }
+        });
+
+        // Reiniciamo la lista
+        Tablero.celdasResaltadas = [];
+
+        // Rehacemos la lista y las resaltamos
+        Tablero.celdaClickada.cuadrado.hijosUI.map((celdaAResaltar)=>{
+            Tablero.celdasResaltadas.push(celdaAResaltar);
+            celdaAResaltar.resaltar();
+        });
     }
 
 
