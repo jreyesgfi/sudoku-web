@@ -1,15 +1,18 @@
 import { Box } from '@mui/system';
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Cuadrado from '../Elementos/Cuadrado';
+import Fila from '../Elementos/Fila';
 export default class Tablero extends React.Component {
 
     static tableroEnLista = [];
     static celdaClickada = null;
     static celdasResaltadas = [];
+    static filas = {};
 
     // Métodos para cambiar las celdas marcadas
     static clickar(celda) {
-        console.log(Tablero.celdaClickada);
+
+        // Descoloreamos la celda clickada previa
         if (Tablero.celdaClickada) {
             try {Tablero.celdaClickada.desclickar() }
             catch {
@@ -32,14 +35,13 @@ export default class Tablero extends React.Component {
             }
         });
 
-        // Reiniciamo la lista
+        // Reiniciamos la lista
         Tablero.celdasResaltadas = [];
 
         // Rehacemos la lista y las resaltamos
-        Tablero.celdaClickada.cuadrado.hijosUI.map((celdaAResaltar)=>{
-            Tablero.celdasResaltadas.push(celdaAResaltar);
-            celdaAResaltar.resaltar();
-        });
+        let cC = Tablero.celdaClickada
+        cC.cuadrado.resaltarCeldas();
+        cC.fila.resaltarCeldas();
     }
 
 
@@ -52,6 +54,9 @@ export default class Tablero extends React.Component {
         // Creamos el tablero vacío
         this.tableroEnLista = [];
         for (let i = 0; i < 9; i++) {
+            Tablero.filas[i] = new Fila();
+
+
             this.tableroEnLista.push([]);
             for (let j = 0; j < 9; j++) {
                 this.tableroEnLista[i].push(j)

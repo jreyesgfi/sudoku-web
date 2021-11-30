@@ -1,5 +1,6 @@
 import { Box } from "@mui/system";
 import React from "react";
+import Tablero from "../Views/Tablero";
 import Celda from "./Celda";
 export default class Cuadrado extends React.Component{
     constructor(props){
@@ -9,6 +10,13 @@ export default class Cuadrado extends React.Component{
         this.hijosUI = [];
         }
 
+
+    resaltarCeldas(){
+        this.hijosUI.map((celdaAResaltar)=>{
+            Tablero.celdasResaltadas.push(celdaAResaltar);
+            celdaAResaltar.resaltar();
+        });
+    }
 
     setResaltada(resaltada){
         this.resaltada = resaltada;

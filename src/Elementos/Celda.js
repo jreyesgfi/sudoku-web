@@ -12,8 +12,13 @@ export default class Celda extends React.Component {
         this.key = props.key;
         
         // Lo relacionamos con el cuadrado
-        this.cuadrado = props.cuadrado
+        this.cuadrado = props.cuadrado;
         this.cuadrado.hijosUI.push(this);
+
+        // Lo relacionamos con su fila
+        this.fila = Tablero.filas[this.x];
+        this.fila.hijosUI.push(this);
+        //console.log(this.Linea.hijosUI.x);
 
 
         this.resaltar = this.resaltar.bind(this);
