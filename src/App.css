@@ -55,7 +55,7 @@ h1 {
 }
 .panel-numerico {
   position: absolute;
-  top: calc(28vh + min(60vh, 72vw));
+  top: max( calc(28vh + min(60vh, 72vw)), 400px);
   justify-content: center;
 
   height: 15vh;

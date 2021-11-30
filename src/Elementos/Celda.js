@@ -26,8 +26,9 @@ export default class Celda extends React.Component {
 
 
         this.resaltar = this.resaltar.bind(this);
-        this.click = this.click.bind(this);
-        this.state = { clickada:false, resaltada: false};
+        this.clickar = this.clickar.bind(this);
+        this.state = { clickada:false, resaltada: false , numero:null};
+        if (props.numero) { this.setState({numero:props.numero})}
         //this.ui = React.createElement('Box', { className: `celda ${this.resaltada && 'resaltada'}`, key:key});
     }
 
@@ -35,7 +36,7 @@ export default class Celda extends React.Component {
         this.setState({resaltada:true});
     }
 
-    click() {
+    clickar() {
         Tablero.clickar(this);
         this.setState({clickada: true});
     }
@@ -43,7 +44,17 @@ export default class Celda extends React.Component {
     desclickar(){
         this.setState({clickada: false, resaltada:false});
     }
-    // click() {
+
+    cambiarNumero(newNumero){
+        if (this.state.numero != newNumero){
+            this.setState({numero:newNumero});
+        } 
+        // Si el número estaba ya lo quitamos
+        else {
+            this.setState({numero:null})
+        }
+    }
+    // clickar() {
     //     function setCeldaClickada(celda){
     //         if (celdaClickada){
     //             try{celdaClickada.desclickar()}
@@ -73,7 +84,8 @@ export default class Celda extends React.Component {
 
     render() {
         return(
-        <Box className={`celda ${this.state.resaltada && 'resaltada'} ${this.state.clickada && 'clickada'}`} onClick={this.click} >
+        <Box className={`celda ${this.state.resaltada && 'resaltada'} ${this.state.clickada && 'clickada'}`} onClick={this.clickar} >
+            {this.state.numero}
         </Box>
         )
     }
