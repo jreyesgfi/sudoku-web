@@ -1,8 +1,7 @@
 import { Box } from '@mui/system';
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Cuadrado from '../Elementos/Cuadrado';
 export default class Tablero extends React.Component {
-
 
     static tableroEnLista = [];
 
@@ -85,4 +84,14 @@ export default class Tablero extends React.Component {
             }
         }
     }
+}
+
+export function CeldasMarcadas(){
+
+    const [celdaClickada,setCeldaClickada] = useState(0);
+    const [celdasResaltadas,setCeldasResaltadas] = useState([]);
+
+
+    
+    
 }

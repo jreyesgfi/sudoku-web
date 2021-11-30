@@ -12,21 +12,49 @@ export default class Celda extends React.Component {
 
 
         this.resaltar = this.resaltar.bind(this);
-        this.state = { resaltada: 0};
+        this.state = { resaltada: false};
         //this.ui = React.createElement('Box', { className: `celda ${this.resaltada && 'resaltada'}`, key:key});
     }
 
-    resaltar(event) {
+    resaltar() {
         console.log(this.state.resaltada)
-        let valor = this.state.resaltada? null:0;
+        let valor = this.state.resaltada? null:true;
         this.setState({
           resaltada: valor
         });
     }
+
+    // click() {
+    //     function setCeldaClickada(celda){
+    //         if (celdaClickada){
+    //             try{celdaClickada.desclickar()}
+    //             catch{
+    //                 console.log('celda errónea, tablero');
+    //             }
+    //         }
+    //         celdaClickada = celda; 
+    //     }
+    
+    //     function setCeldasResaltadas(celda){
+    //         if (celdaClickada == celda){
+    //             celdasResaltadas.map((celda)=>{
+    //                 try{celdaClickada.desclickar()}
+    //                 catch{
+    //                     console.log('celda errónea, tablero');
+    //                 }
+    //             });
+    //             celdasResaltadas = [];
+    //         } else{
+    //             celdasResaltadas.push(celda);
+    //         }
+    //     }
+    // }
+
+
+
     render() {
         return(
-        <Box className="celda" onClick={this.resaltar}>
-            <p>{this.state.resaltada}</p>
+        <Box className={`celda ${this.state.resaltada && 'resaltada'}`} onClick={this.resaltar} >
         </Box>
         )
     }
