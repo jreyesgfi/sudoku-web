@@ -18,6 +18,10 @@ export default class Celda extends React.Component {
         // Lo relacionamos con su fila
         this.fila = Tablero.filas[this.x];
         this.fila.hijosUI.push(this);
+
+        // Lo relacionamos con su columna
+        this.columna = Tablero.columnas[this.y];
+        this.columna.hijosUI.push(this);
         //console.log(this.Linea.hijosUI.x);
 
 

@@ -8,6 +8,7 @@ export default class Tablero extends React.Component {
     static celdaClickada = null;
     static celdasResaltadas = [];
     static filas = {};
+    static columnas = {};
 
     // Métodos para cambiar las celdas marcadas
     static clickar(celda) {
@@ -39,9 +40,10 @@ export default class Tablero extends React.Component {
         Tablero.celdasResaltadas = [];
 
         // Rehacemos la lista y las resaltamos
-        let cC = Tablero.celdaClickada
-        cC.cuadrado.resaltarCeldas();
-        cC.fila.resaltarCeldas();
+        let celClick = Tablero.celdaClickada
+        celClick.cuadrado.resaltarCeldas();
+        celClick.fila.resaltarCeldas();
+        celClick.columna.resaltarCeldas();
     }
 
 
@@ -55,6 +57,7 @@ export default class Tablero extends React.Component {
         this.tableroEnLista = [];
         for (let i = 0; i < 9; i++) {
             Tablero.filas[i] = new Fila();
+            Tablero.columnas[i] = new Fila();
 
 
             this.tableroEnLista.push([]);
