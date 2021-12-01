@@ -77,11 +77,11 @@ h1 {
 }
 
 .celda {
-  flex: 1 1 27%;
+  flex: 1 1 28%;
   margin: 2px;
-  height: 27%;
+  height: 28%;
   overflow: hidden;
-  margin: 0 auto;
+  margin: 0 0;
 
   padding-top: min(3vw,4px);
   padding-left:2px;

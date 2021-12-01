@@ -10,6 +10,12 @@ export default class Tablero extends React.Component {
     static filas = {};
     static columnas = {};
 
+
+    // Método para registrar apretar teclas
+    static teclaApretada(tecla){
+        console.log(tecla);
+    }
+
     // Métodos para cambiar las celdas marcadas
     static clickar(celda) {
 

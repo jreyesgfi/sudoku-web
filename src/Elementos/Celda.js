@@ -63,13 +63,14 @@ export default class Celda extends React.Component {
         // llamamos a tablero.resaltar como callback de setState
         if (this.state.numero != newNumero){
             this.setState({numero:newNumero},()=>{
-                console.log(this.state.numero)
                 Tablero.resaltarCeldas()
             })
         } 
         // Si el número estaba ya lo quitamos
         else {
-            this.setState({numero:null},Tablero.resaltarCeldas())
+            this.setState({numero:null},()=>{
+                Tablero.resaltarCeldas()
+            })
         }
     }
 
