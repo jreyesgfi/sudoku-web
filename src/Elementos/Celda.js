@@ -58,7 +58,6 @@ export default class Celda extends React.Component {
     }
 
     cambiarNumero(newNumero){
-
         // Como los estados tardan un tiempo en cambiar,
         // llamamos a tablero.resaltar como callback de setState
         if (this.state.numero != newNumero){

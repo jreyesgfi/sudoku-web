@@ -12,8 +12,26 @@ export default class Tablero extends React.Component {
 
 
     // Método para registrar apretar teclas
-    static teclaApretada(tecla){
+    static teclaApretada(tecla) {
         console.log(tecla);
+        if (tecla == "Escape") {
+            Tablero.deseleccionarCeldas();
+            if (this.celdaClickada) {
+                Tablero.celdaClickada.desclickar();
+                Tablero.celdaClickada = null;
+            }
+        }
+
+        if (Tablero.celdaClickada) {
+            // Aplicamos comprobación estándar de si el string es numérico
+            const regex = /^[0-9]*$/;
+            if (regex.test(tecla) == true) {
+                let num = parseInt(tecla, 10);
+                console.log(num);
+                Tablero.celdaClickada.cambiarNumero(num);
+            }
+        }
+
     }
 
     // Métodos para cambiar las celdas marcadas
@@ -23,7 +41,7 @@ export default class Tablero extends React.Component {
         if (Tablero.celdaClickada) {
             Tablero.celdaClickada.desclickar();
             // Si es la segunda vez que clickamos salimos de la selección
-            if (celda == Tablero.celdaClickada){ 
+            if (celda == Tablero.celdaClickada) {
                 // Deseleccionamos todas
                 Tablero.deseleccionarCeldas();
 
@@ -40,7 +58,7 @@ export default class Tablero extends React.Component {
         return true;
     }
 
-    static resaltarCeldas(){
+    static resaltarCeldas() {
 
         // Dejamos de resaltar las previas
         Tablero.deseleccionarCeldas();
@@ -53,13 +71,13 @@ export default class Tablero extends React.Component {
 
         // Recuperamos el valor que posee la celda clickada
         let num = celClick.preguntarNumero();
-        num = num ? num:0;
+        num = num ? num : 0;
 
         celClick.cuadrado.resaltarCeldas(num);
         celClick.fila.resaltarCeldas(num);
         celClick.columna.resaltarCeldas(num);
     }
-    static deseleccionarCeldas(){
+    static deseleccionarCeldas() {
         Tablero.celdasResaltadas.map((celdaPrevia) => {
             try { celdaPrevia.deseleccionar() }
             catch {
