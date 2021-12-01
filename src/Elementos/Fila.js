@@ -4,10 +4,10 @@ export default class Fila {
     constructor(){
         this.hijosUI = [];
     }
-    resaltarCeldas(){
+    resaltarCeldas(num){
         this.hijosUI.map((celdaAResaltar)=>{
             Tablero.celdasResaltadas.push(celdaAResaltar);
-            celdaAResaltar.resaltar();
+            celdaAResaltar.resaltar(num);
         });
     }
 }

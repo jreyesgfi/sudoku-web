@@ -11,16 +11,11 @@ export default class Cuadrado extends React.Component{
         }
 
 
-    resaltarCeldas(){
+    resaltarCeldas(num){
         this.hijosUI.map((celdaAResaltar)=>{
             Tablero.celdasResaltadas.push(celdaAResaltar);
-            celdaAResaltar.resaltar();
+            celdaAResaltar.resaltar(num);
         });
-    }
-
-    setResaltada(resaltada){
-        this.resaltada = resaltada;
-        return this.ui
     }
 
     render(){

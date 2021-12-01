@@ -27,33 +27,56 @@ export default class Celda extends React.Component {
 
         this.resaltar = this.resaltar.bind(this);
         this.clickar = this.clickar.bind(this);
-        this.state = { clickada:false, resaltada: false , numero:null};
+        this.desclickar = this.desclickar.bind(this);
+        this.cambiarNumero = this.cambiarNumero.bind(this);
+        this.state = { clickada:false, resaltada: false , repetida:false, numero:null};
         if (props.numero) { this.setState({numero:props.numero})}
         //this.ui = React.createElement('Box', { className: `celda ${this.resaltada && 'resaltada'}`, key:key});
     }
 
-    resaltar() {
-        this.setState({resaltada:true});
+    resaltar(num) {
+        if (this.state.numero === num){
+            this.setState({repetida:true})
+        } else {
+            this.setState({resaltada:true});
+        }
+        
     }
 
     clickar() {
-        Tablero.clickar(this);
-        this.setState({clickada: true});
+        this.setState({
+            // Comprobamos si ya estaba clickado este cuadrado
+            clickada:Tablero.clickar(this)
+        });
     }
 
+    deseleccionar(){
+        this.setState({resaltada:false, repetida:false});
+    }
     desclickar(){
-        this.setState({clickada: false, resaltada:false});
+        this.setState({clickada: false});
     }
 
     cambiarNumero(newNumero){
+
+        // Como los estados tardan un tiempo en cambiar,
+        // llamamos a tablero.resaltar como callback de setState
         if (this.state.numero != newNumero){
-            this.setState({numero:newNumero});
+            this.setState({numero:newNumero},()=>{
+                console.log(this.state.numero)
+                Tablero.resaltarCeldas()
+            })
         } 
         // Si el número estaba ya lo quitamos
         else {
-            this.setState({numero:null})
+            this.setState({numero:null},Tablero.resaltarCeldas())
         }
     }
+
+    preguntarNumero(){
+        return this.state.numero;
+    }
+
     // clickar() {
     //     function setCeldaClickada(celda){
     //         if (celdaClickada){
@@ -84,7 +107,11 @@ export default class Celda extends React.Component {
 
     render() {
         return(
-        <Box className={`celda ${this.state.resaltada && 'resaltada'} ${this.state.clickada && 'clickada'}`} onClick={this.clickar} >
+        <Box className={`celda 
+        ${this.state.resaltada && 'resaltada'} 
+        ${this.state.clickada && 'clickada'}
+        ${this.state.repetida && 'repetida'}
+        `} onClick={this.clickar} >
             {this.state.numero}
         </Box>
         )

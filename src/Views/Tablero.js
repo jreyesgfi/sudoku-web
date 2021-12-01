@@ -15,35 +15,51 @@ export default class Tablero extends React.Component {
 
         // Descoloreamos la celda clickada previa
         if (Tablero.celdaClickada) {
-            try {Tablero.celdaClickada.desclickar() }
-            catch {
-                console.log('celda errónea, tablero');
+            Tablero.celdaClickada.desclickar();
+            // Si es la segunda vez que clickamos salimos de la selección
+            if (celda == Tablero.celdaClickada){ 
+                // Deseleccionamos todas
+                Tablero.deseleccionarCeldas();
+
+                Tablero.celdaClickada = null;
+                // Indicamos que la celda NO se debe colorear como clickada 
+                return false;
             }
         }
-
         // Coloreamos de nuevo
         Tablero.celdaClickada = celda;
         Tablero.resaltarCeldas();
+
+        // Indicamos que la celda se debe colorear como clickada
+        return true;
     }
 
     static resaltarCeldas(){
 
         // Dejamos de resaltar las previas
-        Tablero.celdasResaltadas.map((celdaPrevia) => {
-            try { celdaPrevia.desclickar() }
-            catch {
-                console.log('celda errónea, tablero');
-            }
-        });
+        Tablero.deseleccionarCeldas();
 
         // Reiniciamos la lista
         Tablero.celdasResaltadas = [];
 
         // Rehacemos la lista y las resaltamos
-        let celClick = Tablero.celdaClickada
-        celClick.cuadrado.resaltarCeldas();
-        celClick.fila.resaltarCeldas();
-        celClick.columna.resaltarCeldas();
+        let celClick = Tablero.celdaClickada;
+
+        // Recuperamos el valor que posee la celda clickada
+        let num = celClick.preguntarNumero();
+        num = num ? num:0;
+
+        celClick.cuadrado.resaltarCeldas(num);
+        celClick.fila.resaltarCeldas(num);
+        celClick.columna.resaltarCeldas(num);
+    }
+    static deseleccionarCeldas(){
+        Tablero.celdasResaltadas.map((celdaPrevia) => {
+            try { celdaPrevia.deseleccionar() }
+            catch {
+                console.log('celda errónea, tablero');
+            }
+        });
     }
 
 

@@ -11,9 +11,12 @@ export default class NumerosBotones extends React.Component{
     }
 
     clickar(){
-        try{Tablero.celdaClickada.cambiarNumero(this.numero);}
+        try{
+            Tablero.celdaClickada.cambiarNumero(this.numero);   
+        }
         catch(error){
             alert(error);
+            alert('No hay ninguna celda clickada');
         }
     }
     render(){
