@@ -4,6 +4,7 @@ import { Box } from "@mui/system";
 import React from "react";
 import Tablero, { CeldasMarcadas } from "../Views/Tablero";
 import CeldaAnotaciones from "./CeldaAnotaciones";
+import BotonCambiarModo from "../Views/BotonCambiarModo";
 export default class Celda extends React.Component {
     constructor(props) {
         super(props);
@@ -30,9 +31,15 @@ export default class Celda extends React.Component {
         this.clickar = this.clickar.bind(this);
         this.desclickar = this.desclickar.bind(this);
         this.cambiarNumero = this.cambiarNumero.bind(this);
-        this.state = { clickada:false, resaltada: false , repetida:false, numero:null, modoAnotaciones:true};
+        this.state = { clickada:false, resaltada: false , repetida:false, numero:null, modoAnotaciones:false};
         if (props.numero) { this.setState({numero:props.numero})}
         //this.ui = React.createElement('Box', { className: `celda ${this.resaltada && 'resaltada'}`, key:key});
+    
+        // Diccionario de elementos en anotaciones
+        this.anotaciones = {}
+        for (let i = 1; i < 10; i++) {
+            this.anotaciones[i] = false;
+        }
     }
 
     resaltar(num) {
@@ -108,6 +115,7 @@ export default class Celda extends React.Component {
 
     cambiarModo(){
         this.setState({modoAnotaciones:!this.state.modoAnotaciones});
+        //BotonCambiarModo.cambiarEstado(false);
     }
 
 
@@ -118,7 +126,7 @@ export default class Celda extends React.Component {
         const celdasPeques = [];
         for (let i=1;i<10;i++){
             celdasPeques.push(
-                <CeldaAnotaciones num={i}>
+                <CeldaAnotaciones num={i} estado={this.anotaciones[i]}>
                 </CeldaAnotaciones>
             )
         }

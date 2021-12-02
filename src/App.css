@@ -98,6 +98,7 @@ h1 {
   background: white;
   border: solid 1px grey;
   border-radius: 20%;
+  justify-content: center;
 }
 .celda-anotaciones{
   width: 26%;
@@ -106,7 +107,7 @@ h1 {
   margin: auto;
   padding:auto;
   font: bold 30% monospace;
-  color: grey;
+  color: rgb(66, 66, 66);
 }
 
 
@@ -128,6 +129,7 @@ h1 {
   background: white;
   border: solid 1px grey;
   border-radius:50%;
+
 }
 
 .contenedor-modo-boton {
@@ -136,7 +138,7 @@ h1 {
   left:5vw;
   z-index: 10;
 
-  justify-content: left;
+  justify-content: center;
   display:flexbox;
   flex-wrap: wrap;
   width: 120px;
@@ -151,6 +153,10 @@ h1 {
 
   border: solid 3px grey;
   border-radius: 15%;
+  position:inherit;
+  left:0;
+  right:0;
+  margin: 3px auto;
 }
 .clickado {
   background-color: chartreuse;
