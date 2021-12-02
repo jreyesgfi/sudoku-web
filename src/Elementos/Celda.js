@@ -37,9 +37,16 @@ export default class Celda extends React.Component {
         //this.ui = React.createElement('Box', { className: `celda ${this.resaltada && 'resaltada'}`, key:key});
 
         // Diccionario de elementos en anotaciones
+        this.celdasPeques = [];
         this.anotaciones = {}
         for (let i = 1; i < 10; i++) {
             this.anotaciones[i] = false;
+            this.celdasPeques.push(
+                <CeldaAnotaciones num={i} estado={(numero)=>{
+                    return this.anotaciones[numero];
+                }}>
+                </CeldaAnotaciones>
+            )
         }
     }
 
@@ -86,7 +93,7 @@ export default class Celda extends React.Component {
         // Si estamos en anotaciones editamos nuestro diccionario
         } else {
             this.anotaciones[newNumero] = !this.anotaciones[newNumero];
-            this.render();
+            this.cambiarModo();
         }
 
     }
@@ -141,21 +148,15 @@ export default class Celda extends React.Component {
         if (!this.state.modoAnotaciones) {
             return this.state.numero
         }
-        const celdasPeques = [];
-        for (let i = 1; i < 10; i++) {
-            celdasPeques.push(
-                <CeldaAnotaciones num={i} estado={this.anotaciones[i]}>
-                </CeldaAnotaciones>
-            )
-        }
         return (
-            celdasPeques.map((celda) => celda)
+            this.celdasPeques.map((celda) => celda)
         )
 
     }
 
 
     render() {
+        console.log(this.x,this.y, this.anotaciones);
         return (
             <Box className={`celda flex-grid
         ${this.state.resaltada && 'resaltada'} 

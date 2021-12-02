@@ -5,12 +5,19 @@ export default class CeldaAnotaciones extends React.Component {
     constructor(props) {
         super();
         this.numero = props.num;
-        this.state = {numero:props.num, visible:props.estado};
+        this.cambiarEstado = this.cambiarEstado.bind(this);
+        console.log(props.estado(this.numero))
+        this.estado = props.estado;
+        this.state = {numero:props.num, visible:this.estado(this.numero)};
+    }
+
+    cambiarEstado(bool){
+        this.setState({visible:bool});
     }
 
 
     comprobarVisibilidad(){
-        if (this.state.visible){
+        if (this.estado(this.numero)){
             return this.state.numero;
         }
         return
