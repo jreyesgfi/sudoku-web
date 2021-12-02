@@ -56,6 +56,15 @@ export default class Tablero extends React.Component {
         return true;
     }
 
+    static scapeAction(){
+        Tablero.deseleccionarCeldas();
+        if (Tablero.celdaClickada){
+            Tablero.celdaClickada = null;
+        }
+
+        
+    }
+
     static resaltarCeldas() {
 
         // Dejamos de resaltar las previas

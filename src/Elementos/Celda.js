@@ -12,7 +12,7 @@ export default class Celda extends React.Component {
         this.y = props.y;
         // No podemos crear un hook en una clase
         this.key = props.key;
-        
+
         // Lo relacionamos con el cuadrado
         this.cuadrado = props.cuadrado;
         this.cuadrado.hijosUI.push(this);
@@ -31,10 +31,11 @@ export default class Celda extends React.Component {
         this.clickar = this.clickar.bind(this);
         this.desclickar = this.desclickar.bind(this);
         this.cambiarNumero = this.cambiarNumero.bind(this);
-        this.state = { clickada:false, resaltada: false , repetida:false, numero:null, modoAnotaciones:false};
-        if (props.numero) { this.setState({numero:props.numero})}
+        this.cambiarModo = this.cambiarModo.bind(this);
+        this.state = { clickada: false, resaltada: false, repetida: false, numero: null, modoAnotaciones: false };
+        if (props.numero) { this.setState({ numero: props.numero }) }
         //this.ui = React.createElement('Box', { className: `celda ${this.resaltada && 'resaltada'}`, key:key});
-    
+
         // Diccionario de elementos en anotaciones
         this.anotaciones = {}
         for (let i = 1; i < 10; i++) {
@@ -43,45 +44,54 @@ export default class Celda extends React.Component {
     }
 
     resaltar(num) {
-        if (this.state.numero === num){
-            this.setState({repetida:true})
+        if (this.state.numero === num) {
+            this.setState({ repetida: true })
         } else {
-            this.setState({resaltada:true});
+            this.setState({ resaltada: true });
         }
-        
+
     }
 
     clickar() {
         this.setState({
             // Comprobamos si ya estaba clickado este cuadrado
-            clickada:Tablero.clickar(this)
+            clickada: Tablero.clickar(this)
         });
     }
 
-    deseleccionar(){
-        this.setState({resaltada:false, repetida:false});
+    deseleccionar() {
+        this.setState({ resaltada: false, repetida: false });
     }
-    desclickar(){
-        this.setState({clickada: false});
+    desclickar() {
+        this.setState({ clickada: false });
     }
 
-    cambiarNumero(newNumero){
-        // Como los estados tardan un tiempo en cambiar,
-        // llamamos a tablero.resaltar como callback de setState
-        if (this.state.numero != newNumero){
-            this.setState({numero:newNumero},()=>{
-                Tablero.resaltarCeldas()
-            })
-        } 
-        // Si el número estaba ya lo quitamos
-        else {
-            this.setState({numero:null},()=>{
-                Tablero.resaltarCeldas()
-            })
+    cambiarNumero(newNumero) {
+
+        // Comprobamos en que modo estamos
+        if (!this.state.modoAnotaciones) {
+            // Como los estados tardan un tiempo en cambiar,
+            // llamamos a tablero.resaltar como callback de setState
+            if (this.state.numero != newNumero) {
+                this.setState({ numero: newNumero }, () => {
+                    Tablero.resaltarCeldas()
+                })
+            }
+            // Si el número estaba ya lo quitamos
+            else {
+                this.setState({ numero: null }, () => {
+                    Tablero.resaltarCeldas()
+                })
+            }
+        // Si estamos en anotaciones editamos nuestro diccionario
+        } else {
+            this.anotaciones[newNumero] = !this.anotaciones[newNumero];
+            this.render();
         }
+
     }
 
-    preguntarNumero(){
+    preguntarNumero() {
         return this.state.numero;
     }
 
@@ -95,7 +105,7 @@ export default class Celda extends React.Component {
     //         }
     //         celdaClickada = celda; 
     //     }
-    
+
     //     function setCeldasResaltadas(celda){
     //         if (celdaClickada == celda){
     //             celdasResaltadas.map((celda)=>{
@@ -113,40 +123,48 @@ export default class Celda extends React.Component {
 
     // Comprobamos si estamos en el modo anotaciones
 
-    cambiarModo(){
-        this.setState({modoAnotaciones:!this.state.modoAnotaciones});
+    cambiarModo() {
+        this.setState({ 
+            modoAnotaciones: !this.state.modoAnotaciones,
+            numero:null
+        },()=>{
+            Tablero.scapeAction()
+            Tablero.clickar(this)
+        });
+
         //BotonCambiarModo.cambiarEstado(false);
     }
 
 
 
-    determinarModo(){
-        if (!this.state.modoAnotaciones){
-            return this.state.numero}
+    determinarModo() {
+        if (!this.state.modoAnotaciones) {
+            return this.state.numero
+        }
         const celdasPeques = [];
-        for (let i=1;i<10;i++){
+        for (let i = 1; i < 10; i++) {
             celdasPeques.push(
                 <CeldaAnotaciones num={i} estado={this.anotaciones[i]}>
                 </CeldaAnotaciones>
             )
         }
-        return(
-            celdasPeques.map((celda)=>celda)
+        return (
+            celdasPeques.map((celda) => celda)
         )
-        
+
     }
 
 
     render() {
-        return(
-        <Box className={`celda flex-grid
+        return (
+            <Box className={`celda flex-grid
         ${this.state.resaltada && 'resaltada'} 
         ${this.state.clickada && 'clickada'}
         ${this.state.repetida && 'repetida'}
         `} onClick={this.clickar} >
-            { this.determinarModo()
-            }
-        </Box>
+                {this.determinarModo()
+                }
+            </Box>
         )
     }
 }

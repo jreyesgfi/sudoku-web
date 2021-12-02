@@ -6,7 +6,7 @@ export default class BotonCambiarModo extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state={estado:props.estado}
+        this.state={clickado:false}
         this.clickar = this.clickar.bind(this);
     }
 
@@ -25,7 +25,7 @@ export default class BotonCambiarModo extends React.Component {
                 <div className="texto-modo-boton">
                     ¡Ahora puedes realizar anotaciones!
                 </div>
-                <Box className={`modo-boton ${this.state.estado && 'estado'} `}
+                <Box className={`modo-boton ${this.state.clickado && 'clickado'} `}
                     onClick={this.clickar}>
                 </Box>
             </Box>
