@@ -106,6 +106,7 @@ h1 {
   margin: auto;
   padding:auto;
   font: bold 30% monospace;
+  color: grey;
 }
 
 
@@ -127,10 +128,36 @@ h1 {
   background: white;
   border: solid 1px grey;
   border-radius:50%;
-
-  
-
 }
+
+.contenedor-modo-boton {
+  position: absolute;
+  top:50vh;
+  left:5vw;
+  z-index: 10;
+
+  justify-content: left;
+  display:flexbox;
+  flex-wrap: wrap;
+  width: 120px;
+}
+.texto-modo-boton {
+  justify-content: left;
+}
+
+.modo-boton {
+  width:30px;
+  height:30px;
+
+  border: solid 3px grey;
+  border-radius: 15%;
+}
+.clickado {
+  background-color: chartreuse;
+}
+
+
+
 .resaltada {
   background: pink;
 }

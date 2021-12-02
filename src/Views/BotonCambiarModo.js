@@ -1,0 +1,35 @@
+import { Box } from "@mui/system";
+import React from "react";
+import Tablero from "./Tablero";
+
+export default class BotonCambiarModo extends React.Component {
+
+    constructor(props) {
+        super(props);
+        this.state={clickado:false}
+        this.clickar = this.clickar.bind(this);
+    }
+
+    clickar() {
+        try {
+            Tablero.celdaClickada.cambiarModo();
+            this.setState({clickado:!this.state.clickado});
+        }
+        catch (error) {
+            alert(error)
+            alert('No hay ninguna celda clickada');
+        }
+    }
+    render() {
+        return (
+            <Box className="contenedor-modo-boton">
+                <div className="texto-modo-boton">
+                    ¡Ahora puedes realizar anotaciones!
+                </div>
+                <Box className={`modo-boton ${this.state.clickado && 'clickado'} `}
+                    onClick={this.clickar}>
+                </Box>
+            </Box>
+        )
+    }
+}

@@ -4,6 +4,7 @@ import Tablero from './Views/Tablero';
 import React from 'react';
 import PanelNumerico from './Views/PanelNumerico';
 import { tecladoListener } from './TecladoListener';
+import BotonCambiarModo from './Views/BotonCambiarModo';
 
 
 function App() {
@@ -27,6 +28,8 @@ function App() {
       </Tablero>
       <PanelNumerico>
       </PanelNumerico>
+      <BotonCambiarModo>
+      </BotonCambiarModo>
     </div>
   );
 }

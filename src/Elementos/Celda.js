@@ -105,6 +105,13 @@ export default class Celda extends React.Component {
     // }
 
     // Comprobamos si estamos en el modo anotaciones
+
+    cambiarModo(){
+        this.setState({modoAnotaciones:!this.state.modoAnotaciones});
+    }
+
+
+
     determinarModo(){
         if (!this.state.modoAnotaciones){
             return this.state.numero}
