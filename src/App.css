@@ -11,7 +11,7 @@
 
   display: inline-block;
   position:absolute;
-  left:calc(26vh + 7vw);
+  left:calc(28vh + 7vw);
   top:0px;
   bottom: 0px;
   margin-bottom:auto;
@@ -23,11 +23,10 @@ h1 {
   display:inline-block;
   position: absolute;
   left: 0px;
-  top:0px;
+  top:-8px;
   bottom: 0px;
   margin-left:12vw;
   height: 100%;
-  margin-top: 5vh;
   margin-bottom: 0px;
 }
 
@@ -39,7 +38,7 @@ h1 {
 }
 .tablero {
   position: absolute;
-  top:24vh;
+  top:19vh;
 
   height: min(60vh, 72vw);
   width: min(60vh, 72vw);
@@ -47,15 +46,18 @@ h1 {
   min-height: 35vh;
 
   border:solid 3px black;
+  border-radius: 5%;
 
   left: 0px;
   right: 0px;
   margin-right:auto;
   margin-left:auto;
+
+  padding: 0px;
 }
 .panel-numerico {
   position: absolute;
-  top: max( calc(28vh + min(60vh, 72vw)), 400px);
+  top: max( calc(22vh + min(60vh, 72vw)), 400px);
   justify-content: center;
 
   height: 15vh;
@@ -69,26 +71,32 @@ h1 {
 }
 
 .cuadrado {
-  flex: 1 0 27%;
-  margin: 2px;
-  height: auto;
+  width:31%;
+  margin: auto;
+  padding:0px;
 
-  border: solid 1px grey;
+  height: 31%;
+
+  border: solid 3px grey;
+  border-radius: 10%;
 }
 
 .celda {
-  flex: 1 1 28%;
-  margin: 2px;
-  height: 28%;
-  overflow: hidden;
-  margin: 0 0;
+  box-sizing:border-box;  
 
-  padding-top: min(3vw,4px);
-  padding-left:2px;
-  padding-right:2px;
+  width: 31%;
+  height: 30%;
+  overflow: hidden;
+  margin: auto;
+  padding:auto;
+
+  line-height: 240%;
+  text-align: center;
+  font: bold 220% monospace;
 
   background: white;
   border: solid 1px grey;
+  border-radius: 20%;
 }
 /* .ejemplo {
   border: solid 4px red;
@@ -97,6 +105,9 @@ h1 {
   width: min(9vh, 6vw);
   height: min(9vh, 6vw);
   margin: 2px max(4px, 0.5vw);
+
+  font-size: 20px;
+  vertical-align:auto;
 
   min-width: 40px;
   min-height: 40px;
@@ -131,7 +142,7 @@ h1 {
   position: fixed;
   background-color: #282c34;
   box-sizing: content-box;
-  height: 17vh;
+  height: 13vh;
   font-size:20px;
   color: white;
   width: 400px;
@@ -168,7 +179,11 @@ h1 {
 }
 
 
-@media screen and (max-width: 450px) {
+@media screen and (min-width: 450px) and (max-width: 550px) {
+
+}
+
+@media screen and (max-width: 470px) {
   .tablero{
     border: solid 3px black;
   }
@@ -184,5 +199,20 @@ h1 {
     padding-left: 0px;
     padding-right: 0px;
     border: dotted 1px gray;
+
+    font: bold 170% monospace;
+    line-height: 140%;
+  }
+}
+@media screen and (max-width: 395px) {
+  .celda {
+    margin: 0px;
+    padding-top: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+    border: dotted 1px gray;
+
+    font: bold 140% monospace;
+    line-height: 100%;
   }
 }
