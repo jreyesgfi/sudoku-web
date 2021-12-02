@@ -7,10 +7,10 @@ export default class BotonCambiarModo extends React.Component {
     constructor(props) {
         super(props);
         this.state={clickado:false}
-        this.clickar = this.clickar.bind(this);
+        // this.clickar = this.clickar.bind(this);
     }
 
-    clickar() {
+    static clickar() {
         try {
             Tablero.celdaClickada.cambiarModo();
         }
@@ -26,7 +26,7 @@ export default class BotonCambiarModo extends React.Component {
                     ¡Ahora puedes realizar anotaciones!
                 </div>
                 <Box className={`modo-boton ${this.state.clickado && 'clickado'} `}
-                    onClick={this.clickar}>
+                    onClick={BotonCambiarModo.clickar}>
                 </Box>
             </Box>
         )

@@ -93,7 +93,10 @@ export default class Celda extends React.Component {
         // Si estamos en anotaciones editamos nuestro diccionario
         } else {
             this.anotaciones[newNumero] = !this.anotaciones[newNumero];
-            this.cambiarModo();
+            this.setState({modoAnotaciones:false},()=>
+            {
+                this.setState({modoAnotaciones:true});
+            });
         }
 
     }
