@@ -107,29 +107,30 @@ export default class Celda extends React.Component {
     // Comprobamos si estamos en el modo anotaciones
     determinarModo(){
         if (!this.state.modoAnotaciones){
-            console.log("estamos aquí");
             return this.state.numero}
-        let anotaciones = [];
-        for (let i in 9){
-            anotaciones.push(i+1);
-        }
-        return ( 
-            anotaciones.map((num)=>{
-                <CeldaAnotaciones num={num}>
+        const celdasPeques = [];
+        for (let i=1;i<10;i++){
+            celdasPeques.push(
+                <CeldaAnotaciones num={i}>
                 </CeldaAnotaciones>
-            })
+            )
+        }
+        return(
+            celdasPeques.map((celda)=>celda)
         )
+        
     }
 
 
     render() {
         return(
-        <Box className={`celda 
+        <Box className={`celda flex-grid
         ${this.state.resaltada && 'resaltada'} 
         ${this.state.clickada && 'clickada'}
         ${this.state.repetida && 'repetida'}
         `} onClick={this.clickar} >
-            {this.determinarModo()}
+            { this.determinarModo()
+            }
         </Box>
         )
     }
