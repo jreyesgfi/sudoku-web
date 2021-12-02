@@ -99,6 +99,15 @@ h1 {
   border: solid 1px grey;
   border-radius: 20%;
 }
+.celda-anotaciones{
+  width: 31%;
+  height: 30%;
+  overflow: hidden;
+  margin: auto;
+  padding:auto;
+}
+
+
 /* .ejemplo {
   border: solid 4px red;
 } */

@@ -13,7 +13,6 @@ export default class Tablero extends React.Component {
 
     // Método para registrar apretar teclas
     static teclaApretada(tecla) {
-        console.log(tecla);
         if (tecla == "Escape") {
             Tablero.deseleccionarCeldas();
             if (this.celdaClickada) {
@@ -27,7 +26,6 @@ export default class Tablero extends React.Component {
             const regex = /^[0-9]*$/;
             if (regex.test(tecla) == true) {
                 let num = parseInt(tecla, 10);
-                console.log(num);
                 Tablero.celdaClickada.cambiarNumero(num);
             }
         }

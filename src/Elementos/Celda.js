@@ -3,6 +3,7 @@ import { ClassNames } from "@emotion/react";
 import { Box } from "@mui/system";
 import React from "react";
 import Tablero, { CeldasMarcadas } from "../Views/Tablero";
+import CeldaAnotaciones from "./CeldaAnotaciones";
 export default class Celda extends React.Component {
     constructor(props) {
         super(props);
@@ -29,7 +30,7 @@ export default class Celda extends React.Component {
         this.clickar = this.clickar.bind(this);
         this.desclickar = this.desclickar.bind(this);
         this.cambiarNumero = this.cambiarNumero.bind(this);
-        this.state = { clickada:false, resaltada: false , repetida:false, numero:null, modoAnotaciones:false};
+        this.state = { clickada:false, resaltada: false , repetida:false, numero:null, modoAnotaciones:true};
         if (props.numero) { this.setState({numero:props.numero})}
         //this.ui = React.createElement('Box', { className: `celda ${this.resaltada && 'resaltada'}`, key:key});
     }
@@ -103,6 +104,22 @@ export default class Celda extends React.Component {
     //     }
     // }
 
+    // Comprobamos si estamos en el modo anotaciones
+    determinarModo(){
+        if (!this.state.modoAnotaciones){
+            console.log("estamos aquí");
+            return this.state.numero}
+        let anotaciones = [];
+        for (let i in 9){
+            anotaciones.push(i+1);
+        }
+        return ( 
+            anotaciones.map((num)=>{
+                <CeldaAnotaciones num={num}>
+                </CeldaAnotaciones>
+            })
+        )
+    }
 
 
     render() {
@@ -112,11 +129,7 @@ export default class Celda extends React.Component {
         ${this.state.clickada && 'clickada'}
         ${this.state.repetida && 'repetida'}
         `} onClick={this.clickar} >
-            {() =>{
-                if (this.state.resaltada){this.state.numero}
-                
-                
-                }}
+            {this.determinarModo()}
         </Box>
         )
     }
