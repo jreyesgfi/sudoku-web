@@ -2,6 +2,7 @@
   text-align: center;
   width:100vw;
   height: 100vh;
+  font-family: 'Roboto Regular', arial;
 }
 
 .App-logo {
@@ -106,8 +107,9 @@ h1 {
   height: min(9vh, 6vw);
   margin: 2px max(4px, 0.5vw);
 
-  font-size: 20px;
-  vertical-align:auto;
+  font-family: 'Open Sans Condensed', arial;
+  font: normal 190% 'Open Sans Condensed';
+  line-height: 160%;
 
   min-width: 40px;
   min-height: 40px;
@@ -178,11 +180,6 @@ h1 {
   
 }
 
-
-@media screen and (min-width: 450px) and (max-width: 550px) {
-
-}
-
 @media screen and (max-width: 470px) {
   .tablero{
     border: solid 3px black;
@@ -194,25 +191,19 @@ h1 {
   }
   
   .celda {
-    margin: 0px;
-    padding-top: 0px;
-    padding-left: 0px;
-    padding-right: 0px;
-    border: dotted 1px gray;
 
     font: bold 170% monospace;
+    line-height: 150%;
+  }
+
+  .numero-boton {
+    font: lighter 230% monospace;
     line-height: 140%;
   }
 }
 @media screen and (max-width: 395px) {
   .celda {
-    margin: 0px;
-    padding-top: 0px;
-    padding-left: 0px;
-    padding-right: 0px;
-    border: dotted 1px gray;
-
     font: bold 140% monospace;
-    line-height: 100%;
+    line-height: 120%;
   }
 }

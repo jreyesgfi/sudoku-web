@@ -29,7 +29,7 @@ export default class Celda extends React.Component {
         this.clickar = this.clickar.bind(this);
         this.desclickar = this.desclickar.bind(this);
         this.cambiarNumero = this.cambiarNumero.bind(this);
-        this.state = { clickada:false, resaltada: false , repetida:false, numero:null};
+        this.state = { clickada:false, resaltada: false , repetida:false, numero:null, modoAnotaciones:false};
         if (props.numero) { this.setState({numero:props.numero})}
         //this.ui = React.createElement('Box', { className: `celda ${this.resaltada && 'resaltada'}`, key:key});
     }
@@ -112,7 +112,11 @@ export default class Celda extends React.Component {
         ${this.state.clickada && 'clickada'}
         ${this.state.repetida && 'repetida'}
         `} onClick={this.clickar} >
-            {this.state.numero}
+            {() =>{
+                if (this.state.resaltada){this.state.numero}
+                
+                
+                }}
         </Box>
         )
     }
